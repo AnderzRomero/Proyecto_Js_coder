@@ -11,7 +11,7 @@ function calcularPagosMensuales(monto, tasaInteresAnual, plazoEnMeses) {
     console.log(pagoMensual, "Precio mensual")
 
     // Redondeamos el pago mensual a dos decimales
-    return Math.round(pagoMensual * 100) / 100;
+    return Math.round(((pagoMensual * 100) / 100), 1);
 }
 
 //Solicitamos los datos necesarios para realizar la simulacion del credito
