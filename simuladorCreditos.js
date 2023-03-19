@@ -3,12 +3,14 @@
 function calcularPagosMensuales(monto, tasaInteresAnual, plazoEnMeses) {
     // Convertimos la tasa de interés anual a una tasa de interés mensual decimal
     const tasaInteresMensual = (tasaInteresAnual / 12) / 100;
+    console.log(tasaInteresMensual);
 
     // Calculamos el pago mensual utilizando la fórmula de pagos uniformes
     const numerador = monto * tasaInteresMensual * Math.pow(1 + tasaInteresMensual, plazoEnMeses);
     const denominador = Math.pow(1 + tasaInteresMensual, plazoEnMeses) - 1;
+    console.log(numerador, "Intereses");
     const pagoMensual = numerador / denominador;
-    console.log(pagoMensual, "Precio mensual")
+    console.log(pagoMensual, "Precio mensual");
 
     // Redondeamos el pago mensual a dos decimales
     return Math.round(((pagoMensual * 100) / 100), 1);
