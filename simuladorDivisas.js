@@ -3,14 +3,20 @@
 let entrada = prompt("ESCRIBA EL NUMERO DEL SIMULADOR QUE REQUIERE:" + "\n" +
     "1.  Creditos bancarios" + "\n" +
     "2.  Cambio de divisas" + "\n" +
-    "3.  Cuentas servicios publicos" + "\n" +
+    "3.  Venta de productos tecnologicos" + "\n" +
     "4.  Salir"
 );
-//Repetimos hasta que se ingrese la opcion "4" 
+//Repetimos hasta que se ingrese la opcion "4" para salir 
 while (entrada != "4") {
     switch (entrada) {
         case "1":
             //Simulador de Creditos Bancarios
+
+            //Solicitamos los datos necesarios para realizar la simulacion del credito
+            let montoPrestamo = parseFloat(prompt("Ingrese el monto de dinero que necesitas"));
+            let plazoEnMeses = parseInt(prompt("Ingrese ¿A cuantos meses? requiere el prestamo"));
+            const tasaInteresAnual = 12;
+
 
             function calcularPagosMensuales(monto, tasaInteresAnual, plazoEnMeses) {
                 // Convertimos la tasa de interés anual a una tasa de interés mensual decimal
@@ -28,27 +34,13 @@ while (entrada != "4") {
                 return Math.round(((pagoMensual * 100) / 100), 1);
             }
 
-            //Solicitamos los datos necesarios para realizar la simulacion del credito
-            let montoPrestamo = parseFloat(prompt("Ingrese el monto de dinero que necesitas"));
-            let plazoEnMeses = parseInt(prompt("Ingrese ¿A cuantos meses?"));
-            const tasaInteresAnual = 12;
-
-
             const pagoMensual = calcularPagosMensuales(montoPrestamo, tasaInteresAnual, plazoEnMeses);
 
             alert(`El pago mensual es de ${pagoMensual} pesos.`);
             break;
+
         case "2":
             //Simulador de convertidor de divisas
-
-            /* 
-            cada moneda 
-            {
-                nombre
-                id
-                valor
-            } 
-            */
 
             // Crear Clase modena
 
@@ -66,66 +58,88 @@ while (entrada != "4") {
             const yenes = new Moneda('Yenes Japoneses', 'JPY', 35)
             const pesos = new Moneda('Pesos Mexicanos', 'MXN', 266)
 
-            let from = prompt("Escoge la moneda que desea convertir  USD - EUR - GBP - JPY - MXN").toLowerCase();
+            // Pedimos la moneda origen que se convertira
+            let modenaOrigen = prompt("Escoge la moneda que desea convertir:" + "\n" +
+                "USD :  " + dolar.nombre + "\n" +
+                "EUR :  " + euro.nombre + "\n" +
+                "GBP :  " + libras.nombre + "\n" +
+                "JPY :  " + yenes.nombre + "\n" +
+                "MXN :  " + pesos.nombre).toLowerCase();
 
             //variable para condicion de moneda correcta
             let escogioMoneda = false
-
             let infMonedaEscogida
 
             while (escogioMoneda === false) {
-                if (from === "usd") {
+                if (modenaOrigen === "usd") {
                     escogioMoneda = true
                     infMonedaEscogida = dolar
-                } else if (from === "eur") {
+                } else if (modenaOrigen === "eur") {
                     escogioMoneda = true
                     infMonedaEscogida = euro
-                } else if (from === "gbp") {
+                } else if (modenaOrigen === "gbp") {
                     escogioMoneda = true
                     infMonedaEscogida = libras
-                } else if (from === "jpy") {
+                } else if (modenaOrigen === "jpy") {
                     escogioMoneda = true
                     infMonedaEscogida = yenes
-                } else if (from === "mxn") {
+                } else if (modenaOrigen === "mxn") {
                     escogioMoneda = true
                     infMonedaEscogida = pesos
                 } else {
-                    from = prompt(
-                        "Escoge UNA moneda correcta  USD - EUR - GBP - JPY - MXN"
+                    modenaOrigen = prompt(
+                        "Escoge UNA moneda correcta: " + "\n" +
+                        "USD :  " + dolar.nombre + "\n" +
+                        "EUR :  " + euro.nombre + "\n" +
+                        "GBP :  " + libras.nombre + "\n" +
+                        "JPY :  " + yenes.nombre + "\n" +
+                        "MXN :  " + pesos.nombre
                     );
                 }
             }
             alert('Divisa escogida es:  ' + infMonedaEscogida.nombre + " " + infMonedaEscogida.id);
 
-            let to = prompt("convertir A: USD - EUR - GBP - JPY - MXN").toLowerCase();
+            // Pedimos la moneda destino a la que se convertira
+            let modenaDestino = prompt("convertir A:" + "\n" +
+                "USD :  " + dolar.nombre + "\n" +
+                "EUR :  " + euro.nombre + "\n" +
+                "GBP :  " + libras.nombre + "\n" +
+                "JPY :  " + yenes.nombre + "\n" +
+                "MXN :  " + pesos.nombre).toLowerCase();
 
+            //variable para condicion de moneda correcta
             let escogidaConvertir = false
             let infMonedaConvertir
 
             while (escogidaConvertir === false) {
-                if (to === "usd") {
+                if (modenaDestino === "usd") {
                     escogidaConvertir = true
                     infMonedaConvertir = dolar
-                } else if (to === "eur") {
+                } else if (modenaDestino === "eur") {
                     escogidaConvertir = true
                     infMonedaConvertir = euro
-                } else if (to === "gbp") {
+                } else if (modenaDestino === "gbp") {
                     escogidaConvertir = true
                     infMonedaConvertir = libras
-                } else if (to === "jpy") {
+                } else if (modenaDestino === "jpy") {
                     escogidaConvertir = true
                     infMonedaConvertir = yenes
-                } else if (to === "mxn") {
+                } else if (modenaDestino === "mxn") {
                     escogidaConvertir = true
                     infMonedaConvertir = pesos
                 } else {
-                    to = prompt(
-                        "Escoge UNA moneda correcta  USD - EUR - GBP - JPY - MXN"
+                    modenaDestino = prompt("Escoge UNA moneda correcta: " + "\n" +
+                        "USD :  " + dolar.nombre + "\n" +
+                        "EUR :  " + euro.nombre + "\n" +
+                        "GBP :  " + libras.nombre + "\n" +
+                        "JPY :  " + yenes.nombre + "\n" +
+                        "MXN :  " + pesos.nombre
                     );
                 }
             }
             alert('Divisa escogida es:  ' + infMonedaConvertir.nombre + " " + infMonedaConvertir.id);
 
+            //pedimos la cantidad de dinero a convertir y la guardamos en la variable 
             const cantidad = parseFloat(prompt("Ingrese la cantidad de dinero a convertir"));
 
 
@@ -164,102 +178,102 @@ while (entrada != "4") {
                 // Realizar la conversión
 
                 while ((escogidaConvertir === false) && (infMonedaEscogida === false)) {
-                    if ((from === "usd") && (to === "eur")) {
+                    if ((modenaOrigen === "usd") && (modenaDestino === "eur")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * USDEUR;
                         return converted;
-                    } else if ((from === "usd") && (to === "gbp")) {
+                    } else if ((modenaOrigen === "usd") && (modenaDestino === "gbp")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * USDGBP;
                         return converted;
-                    } else if ((from === "usd") && (to === "jpy")) {
+                    } else if ((modenaOrigen === "usd") && (modenaDestino === "jpy")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * USDJPY;
                         return converted;
-                    } else if ((from === "usd") && (to === "mxn")) {
+                    } else if ((modenaOrigen === "usd") && (modenaDestino === "mxn")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * USDMXN;
                         return converted;
-                    } else if ((from === "eur") && (to === "usd")) {
+                    } else if ((modenaOrigen === "eur") && (modenaDestino === "usd")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * EURUSD;
                         return converted;
-                    } else if ((from === "eur") && (to === "gbp")) {
+                    } else if ((modenaOrigen === "eur") && (modenaDestino === "gbp")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * EURGBP;
                         return converted;
-                    } else if ((from === "eur") && (to === "jpy")) {
+                    } else if ((modenaOrigen === "eur") && (modenaDestino === "jpy")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * EURJPY;
                         return converted;
-                    } else if ((from === "eur") && (to === "mxn")) {
+                    } else if ((modenaOrigen === "eur") && (modenaDestino === "mxn")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * EURMXN;
                         return converted;
-                    } else if ((from === "gbp") && (to === "usd")) {
+                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "usd")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * GBPUSD;
                         return converted;
-                    } else if ((from === "gbp") && (to === "eur")) {
+                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "eur")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * GBPEUR;
                         return converted;
-                    } else if ((from === "gbp") && (to === "jpy")) {
+                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "jpy")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * GBPJPY;
                         return converted;
-                    } else if ((from === "gbp") && (to === "mxn")) {
+                    } else if ((modenaOrigen === "gbp") && (modenaDestino === "mxn")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * GBPMXN;
                         return converted;
-                    } else if ((from === "jpy") && (to === "usd")) {
+                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "usd")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * JPYUSD;
                         return converted;
-                    } else if ((from === "jpy") && (to === "eur")) {
+                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "eur")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * JPYEUR;
                         return converted;
-                    } else if ((from === "jpy") && (to === "gbp")) {
+                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "gbp")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * JPYGBP;
                         return converted;
-                    } else if ((from === "jpy") && (to === "mxn")) {
+                    } else if ((modenaOrigen === "jpy") && (modenaDestino === "mxn")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * JPYMXN;
                         return converted;
-                    } else if ((from === "mxn") && (to === "usd")) {
+                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "usd")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * MXNUSD;
                         return converted;
-                    } else if ((from === "mxn") && (to === "eur")) {
+                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "eur")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * MXNEUR;
                         return converted;
-                    } else if ((from === "mxn") && (to === "gbp")) {
+                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "gbp")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * MXNGBP;
                         return converted;
-                    } else if ((from === "mxn") && (to === "jpy")) {
+                    } else if ((modenaOrigen === "mxn") && (modenaDestino === "jpy")) {
                         escogidaConvertir = true
                         infMonedaEscogida = true
                         let converted = cantidad * MXNJPY;
@@ -274,11 +288,13 @@ while (entrada != "4") {
             }
             alert("Resultado es: " + convert() + " " + infMonedaConvertir.id);
             break;
+
         case "3":
-            alert("HOLA JUAN");
+            
+        
+
             break;
         case "4":
-            alert("HOLA JUAN");
             break;
         default:
             alert("ESCRIBA LA OPCION CORRECTA")
@@ -287,6 +303,6 @@ while (entrada != "4") {
     entrada = prompt("ESCRIBA EL NUMERO DEL SIMULADOR QUE REQUIERE:" + "\n" +
         "1.  Creditos bancarios" + "\n" +
         "2.  Cambio de divisas" + "\n" +
-        "3.  Cuentas servicios publicos" + "\n" +
+        "3.  Venta de productos tecnologicos" + "\n" +
         "4.  Salir");
 }
