@@ -290,11 +290,39 @@ while (entrada != "4") {
             break;
 
         case "3":
-            
-        
+
+            let menuTienda = prompt("Bienvenidos a HeroSystems" + "\n" +
+                "Selecciona la opción a realizar: " + "\n" +
+                "1. Ingresar Producto" + "\n" +
+                "2. Modificar Producto" + "\n" +
+                "3. Eliminar Producto" + "\n" +
+                "4. Mostrar Producto" + "\n" +
+                "5. Buscar producto" + "\n" +
+                "6. Salir"
+            );
+
+            while (menuTienda != "6") {
+                switch (menuTienda) {
+                    case "1":
+
+                        break;
+
+                    case "2":
+                        break;
+                    case "3":
+                        break;
+                    case "4":
+                        break;
+                    case "5":
+                        break;
+                    case "6":
+                        break;                    
+                }
+            }
 
             break;
         case "4":
+            alert("MUCHAS GRACIAS POR UTILIZAR NUESTROS SIMULADORES");
             break;
         default:
             alert("ESCRIBA LA OPCION CORRECTA")
