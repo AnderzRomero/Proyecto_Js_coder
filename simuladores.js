@@ -10,6 +10,10 @@ let entrada = prompt("ESCRIBA EL NUMERO DEL SIMULADOR QUE REQUIERE:" + "\n" +
 while (entrada != "4") {
     switch (entrada) {
         case "1":
+
+            // También podrías definir un array que funciones como historial de conversiones ó de solicitudes de créditos.
+
+
             //Simulador de Creditos Bancarios
 
             //Solicitamos los datos necesarios para realizar la simulacion del credito
@@ -40,31 +44,32 @@ while (entrada != "4") {
             break;
 
         case "2":
-            //Simulador de convertidor de divisas
+            //Simulador de convertidor de divisas            
 
             // Crear Clase modena
-
             class Moneda {
-                constructor(nombre, id, valor) {
+                constructor(nombre, id) {
                     this.nombre = nombre
                     this.id = id
-                    this.valor = valor
                 }
             }
 
-            const dolar = new Moneda('Dolares Americanos', 'USD', 4788)
-            const euro = new Moneda('Euros', 'EUR', 5100)
-            const libras = new Moneda('Libras Esterlinas', 'GBP', 5763)
-            const yenes = new Moneda('Yenes Japoneses', 'JPY', 35)
-            const pesos = new Moneda('Pesos Mexicanos', 'MXN', 266)
+            // definimos un array para contener los objetos con la información de las divisas.            
+            const divisas = [];
+            divisas.push(new Moneda('Dolares Americanos', 'USD'));
+            divisas.push(new Moneda('Euros', 'EUR'));
+            divisas.push(new Moneda('Libras Esterlinas', 'GBP'));
+            divisas.push(new Moneda('Yenes Japoneses', 'JPY'));
+            divisas.push(new Moneda('Pesos Mexicanos', 'MXN'));
+
 
             // Pedimos la moneda origen que se convertira
-            let modenaOrigen = prompt("Escoge la moneda que desea convertir:" + "\n" +
-                "USD :  " + dolar.nombre + "\n" +
-                "EUR :  " + euro.nombre + "\n" +
-                "GBP :  " + libras.nombre + "\n" +
-                "JPY :  " + yenes.nombre + "\n" +
-                "MXN :  " + pesos.nombre).toLowerCase();
+            let modenaOrigen = prompt(`Escoge la moneda que desea convertir:\n
+            USD :  ${divisas[0].nombre}\n
+            EUR :  ${divisas[1].nombre}\n
+            GBP :  ${divisas[2].nombre}\n
+            JPY :  ${divisas[3].nombre}\n
+            MXN :  ${divisas[4].nombre}`).toLowerCase();
 
             //variable para condicion de moneda correcta
             let escogioMoneda = false
@@ -73,39 +78,37 @@ while (entrada != "4") {
             while (escogioMoneda === false) {
                 if (modenaOrigen === "usd") {
                     escogioMoneda = true
-                    infMonedaEscogida = dolar
+                    infMonedaEscogida = divisas.filter((el) => el.id.includes('USD'))
                 } else if (modenaOrigen === "eur") {
                     escogioMoneda = true
-                    infMonedaEscogida = euro
+                    infMonedaEscogida = divisas.filter((el) => el.id.includes('EUR'))
                 } else if (modenaOrigen === "gbp") {
                     escogioMoneda = true
-                    infMonedaEscogida = libras
+                    infMonedaEscogida = divisas.filter((el) => el.id.includes('GBP'))
                 } else if (modenaOrigen === "jpy") {
                     escogioMoneda = true
-                    infMonedaEscogida = yenes
+                    infMonedaEscogida = divisas.filter((el) => el.id.includes('JPY'))
                 } else if (modenaOrigen === "mxn") {
                     escogioMoneda = true
-                    infMonedaEscogida = pesos
+                    infMonedaEscogida = divisas.filter((el) => el.id.includes('MXN'))
                 } else {
-                    modenaOrigen = prompt(
-                        "Escoge UNA moneda correcta: " + "\n" +
-                        "USD :  " + dolar.nombre + "\n" +
-                        "EUR :  " + euro.nombre + "\n" +
-                        "GBP :  " + libras.nombre + "\n" +
-                        "JPY :  " + yenes.nombre + "\n" +
-                        "MXN :  " + pesos.nombre
-                    );
+                    modenaOrigen = prompt(`Escoge UNA moneda correcta:\n
+                        USD : ${divisas[0].nombre}\n
+                        EUR : ${divisas[1].nombre}\n
+                        GBP : ${divisas[2].nombre}\n
+                        JPY : ${divisas[3].nombre}\n
+                        MXN : ${divisas[4].nombre}`).toLowerCase();
                 }
             }
-            alert('Divisa escogida es:  ' + infMonedaEscogida.nombre + " " + infMonedaEscogida.id);
+            alert(`Divisa escogida es:  ` + infMonedaEscogida[0].nombre);
 
             // Pedimos la moneda destino a la que se convertira
-            let modenaDestino = prompt("convertir A:" + "\n" +
-                "USD :  " + dolar.nombre + "\n" +
-                "EUR :  " + euro.nombre + "\n" +
-                "GBP :  " + libras.nombre + "\n" +
-                "JPY :  " + yenes.nombre + "\n" +
-                "MXN :  " + pesos.nombre).toLowerCase();
+            let modenaDestino = prompt(`convertir A:\n
+            USD : ${divisas[0].nombre}\n
+            EUR : ${divisas[1].nombre}\n
+            GBP : ${divisas[2].nombre}\n
+            JPY : ${divisas[3].nombre}\n
+            MXN : ${divisas[4].nombre}`).toLowerCase();
 
             //variable para condicion de moneda correcta
             let escogidaConvertir = false
@@ -114,36 +117,34 @@ while (entrada != "4") {
             while (escogidaConvertir === false) {
                 if (modenaDestino === "usd") {
                     escogidaConvertir = true
-                    infMonedaConvertir = dolar
+                    infMonedaConvertir = divisas.filter((el) => el.id.includes('USD'))
                 } else if (modenaDestino === "eur") {
                     escogidaConvertir = true
-                    infMonedaConvertir = euro
+                    infMonedaConvertir = divisas.filter((el) => el.id.includes('EUR'))
                 } else if (modenaDestino === "gbp") {
                     escogidaConvertir = true
-                    infMonedaConvertir = libras
+                    infMonedaConvertir = divisas.filter((el) => el.id.includes('GBP'))
                 } else if (modenaDestino === "jpy") {
                     escogidaConvertir = true
-                    infMonedaConvertir = yenes
+                    infMonedaConvertir = divisas.filter((el) => el.id.includes('JPY'))
                 } else if (modenaDestino === "mxn") {
                     escogidaConvertir = true
-                    infMonedaConvertir = pesos
+                    infMonedaConvertir = divisas.filter((el) => el.id.includes('MXN'))
                 } else {
-                    modenaDestino = prompt("Escoge UNA moneda correcta: " + "\n" +
-                        "USD :  " + dolar.nombre + "\n" +
-                        "EUR :  " + euro.nombre + "\n" +
-                        "GBP :  " + libras.nombre + "\n" +
-                        "JPY :  " + yenes.nombre + "\n" +
-                        "MXN :  " + pesos.nombre
-                    );
+                    modenaDestino = prompt(`Escoge UNA moneda correcta:\n
+                    USD : ${divisas[0].nombre}\n
+                    EUR : ${divisas[1].nombre}\n
+                    GBP : ${divisas[2].nombre}\n
+                    JPY : ${divisas[3].nombre}\n
+                    MXN : ${divisas[4].nombre}`).toLowerCase();
                 }
             }
-            alert('Divisa escogida es:  ' + infMonedaConvertir.nombre + " " + infMonedaConvertir.id);
+            alert('Divisa escogida es:  ' + infMonedaConvertir[0].nombre);
 
             //pedimos la cantidad de dinero a convertir y la guardamos en la variable 
             const cantidad = parseFloat(prompt("Ingrese la cantidad de dinero a convertir"));
 
-
-            function convert() {
+            function convertir() {
 
                 let infMonedaEscogida = false
                 let escogidaConvertir = false
@@ -285,8 +286,9 @@ while (entrada != "4") {
                     }
                 }
 
-            }
-            alert("Resultado es: " + convert() + " " + infMonedaConvertir.id);
+            }    
+            alert("Resultado es: " + "\n" +
+                cantidad + "  " + infMonedaEscogida[0].nombre + "  = " + "\n" + convertir() + "   " + infMonedaConvertir[0].nombre);
             break;
 
         case "3":
@@ -316,7 +318,7 @@ while (entrada != "4") {
                     case "5":
                         break;
                     case "6":
-                        break;                    
+                        break;
                 }
             }
 
