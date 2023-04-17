@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Manfred Anderson Romero">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <title>Convertidor de Divisas</title>
+</head>
+
+<body>
+    <header>
+        <nav id="menu">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../pages/creditos.html">Creditos bancarios</a></li>
+                <li><a href="../pages/divisas.html">Cambio de divisas</a></li>
+                <li><a href="../pages/productos.html">Venta de productos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="principal">
+        <h1>Convertidor de Divisas</h1>
+        <div class="convertidor">
+            <label>Seleccione el tipo de divisa a convertir:</label>
+            <select id="divisa-origen" placeholder="Origen">
+                <option value="USD">USD (Dolares Americanos)</option>
+                <option value="EUR">EUR (Euros)</option>
+                <option value="JPY">JPY (Yen Japonés)</option>
+                <option value="GBP">GBP (Libras Esterlinas)</option>
+                <option value="MXN">MXN (Pesos Mexicanos)</option>
+            </select>
+            <label>Seleccione la moneda de destino:</label>
+            <select id="divisa-destino" placeholder="Destino">
+                <option value="USD">USD (Dolares Americanos)</option>
+                <option value="EUR">EUR (Euros)</option>
+                <option value="JPY">JPY (Yen Japonés)</option>
+                <option value="GBP">GBP (Libras Esterlinas)</option>
+                <option value="MXN">MXN (Pesos Mexicanos)</option>
+            </select>
+            <label>Ingrese el monto a Convertir:</label>
+            <input type="number" id="monto" placeholder="$">
+            <div class="flex-botones">
+                <button class="botones" id="botonCovertir">Convertir</button>
+                <button class="botones" id="botonLimpiar">Limpiar</button>
+                <button class="botones" id="botonHistorial">Historial</button>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div>Copyright &copy; Manfred Anderson Romero</div>
+            <h3>¡Síguenos en las redes sociales!</h3>
+            <div class="redes-sociales">
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="../divisas.js"></script>
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://kit.fontawesome.com/e5d948d59a.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

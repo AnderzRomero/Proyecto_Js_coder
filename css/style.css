@@ -1,0 +1,195 @@
+html {
+	min-height: 100%;
+	position: relative;
+}
+
+body {
+	background-image: url(../assets/img/fondo.jpg);
+	margin: 0;
+	margin-bottom: 40 px;
+}
+
+h1 {
+	text-align: center;
+	color: #e2dfdf;
+}
+
+h2 {
+	text-align: center;
+	color: #FFF;
+}
+
+h3 {
+	margin: 0;
+}
+
+main {
+	margin-top: 20px;
+	height: 100vh;
+}
+
+label {
+	display: block;
+	margin-bottom: 10px;
+}
+
+input,
+select {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+	padding: 10px;
+	border: 1px solid #D8D8D8;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+
+nav {
+	background-color: #33333391;
+	height: 50px;
+	width: 100%;
+	padding: 30px 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: flex;
+}
+
+li {
+	flex: 1;
+	text-align: center;
+}
+
+a {
+	display: block;
+	color: white;
+	text-decoration: none;
+	font-size: 18px;
+	padding: 15px;
+	transition: all 0.2s ease-in-out;
+}
+
+.convertidor {
+	margin: 0 auto;
+	width: 30%;
+	padding: 30px;
+	background-color: #948d8db9;
+	box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.781);
+	border-radius: 5%;
+	position: relative;
+}
+
+.convertidor__resultado {
+	text-align: center;
+	margin-top: 20px;
+	padding: 15px;
+	background-color: #000000b0;
+	color: #9c9999;
+	font-size: 20px;
+}
+
+.convertidor__resultado b {
+	color: #FFF;
+}
+
+.flex-botones {
+	display: flex;
+	margin-top: 2rem;
+}
+
+.botones {
+	margin: 0 auto;
+	background-color: #1e3841;
+	color: #FFFFFF;
+	padding: 10px 20px;
+	border-radius: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+.botones:hover {
+	background-color: #000000;
+	color: #FFF;
+}
+
+#resultado {
+	font-size: 24px;
+	font-weight: bold;
+	margin-top: 20px;
+	text-align: center;
+}
+
+#menu a:hover {
+	background-color: white;
+	color: #333;
+	border-radius: 10px;
+}
+
+#footer {
+	background-color: #333333b9;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+	color: #fff;
+	padding: 30px 0;
+}
+
+#footer a:hover {
+	background-color: white;
+	color: #333;
+	border-radius: 50%;
+}
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.redes-sociales {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.redes-sociales a {
+	color: #fff;
+	font-size: 20px;
+	transition: color 0.2s;
+}
+
+.redes-sociales a:hover {
+	color: #ccc;
+}
+
+#bienvenida {
+	margin: 0 auto;
+	text-align: center;
+	width: 70%;
+	padding: 15px;
+	background-color: #0000007e;
+	border-radius: 5%;
+}
+
+#titulo_bienvenida {
+	font-size: 40px;
+}
+
+#bienvenida p {
+	color: #c7d1b7;
+	font-size: 28px;
+}
+
+.menuproductos {
+	margin: 0 auto;
+	width: 30%;
+	padding: 30px;
+	background-color: #948d8db9;
+	box-shadow: 0px 0px 5px 0px rgba(255, 255, 255, 0.781);
+	border-radius: 5%;
+	position: relative;
+}
