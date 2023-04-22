@@ -163,22 +163,12 @@ botonesAgregar.forEach(boton => {
             precio: producto.precio,
             cantidad: 1,
         }
-        // forma 1
-        // const prodEnCarrito = carrito.find(prod=>prod.id===prodCarrito.id)
-        // if(!prodEnCarrito){
-        //     carrito.push(prodCarrito)
-        // } else {
-        //     prodEnCarrito.cantidad++
-        // }
-
-        // forma 2
         const indexProd = carrito.findIndex(prod => prod.id === prodCarrito.id)
         if (indexProd === -1) {
             carrito.push(prodCarrito)
         } else {
             carrito[indexProd].cantidad++
         }
-        console.log(carrito);
     }
 })
 
@@ -225,14 +215,14 @@ irCarrito.onclick = () => {
             confirmButtonColor: '#006600',
             cancelButtonColor: '#CC0033',
             confirmButtonText: 'Si, Comprar!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Compra realizada!',
-                'Sus productos han sido comprados.',
-                'success'
-              )
+                Swal.fire(
+                    'Compra realizada!',
+                    'Sus productos han sido comprados.',
+                    'success'
+                )
             }
-          })          
+        })
     }
 }
