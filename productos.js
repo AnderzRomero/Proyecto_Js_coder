@@ -1,36 +1,3 @@
-// 3.... Simulador Venta de productos
-
-//Tienda Tecnologica
-
-// //clase Producto
-
-// class Producto {
-//     constructor(id, nombre, precio) {
-//         this.id = id
-//         this.nombre = nombre
-//         this.precio = precio
-//     }
-// }
-
-// // creamor 4 productos
-// const teclado = new Producto(1, 'Teclado Bluetooth', 65000)
-// const mouse = new Producto(2, 'MOUSE GAMING EXTREME 7 BOTONES', 27000)
-// const bluetooth = new Producto(3, 'adaptador Bluetooth y WIFI', 95000)
-// const audifonos = new Producto(4, 'Manos libres', 10000)
-
-// // guardamos los productos
-// const productos = [teclado, mouse, bluetooth, audifonos]
-
-// // Agregar opciones de productos al select
-
-// const selectNode = document.querySelector('#listaProductos')
-// productos.forEach((producto) => {
-//     const optionProd = document.createElement('option')
-//     optionProd.innerText = `${producto.nombre}: $ ${producto.precio}`
-//     optionProd.setAttribute('id', `${producto.id}`)
-//     selectNode.append(optionProd)
-// })
-
 // // carrito
 // const carrito = []
 
@@ -81,6 +48,7 @@ const inputNombre = document.querySelector('#nombre')
 const inputApellido = document.querySelector('#apellido')
 const titulo = document.querySelector('#titulo')
 const divProductos = document.querySelector('#divProductos')
+const parrafoTotal = document.querySelector('#total')
 
 // click sobre el boton ingresar
 formulario.onsubmit = (e) => {
@@ -169,9 +137,21 @@ botonesAgregar.forEach(boton => {
         } else {
             carrito[indexProd].cantidad++
         }
-    }
-})
 
+        Toastify({
+            text: "Se agrego tu producto al carrito!",
+            className: "info",
+            duration: 5000,
+            gravity: 'bottom',
+            position: 'right',
+            style: {
+                background: "linear-gradient(90deg, rgba(50,57,56,1) 0%, rgba(118,190,198,1) 100%)",
+                border: "1px solid #fff",
+            }
+        }).showToast();
+    }
+
+})
 
 // boton ir al carrito de compras
 const irCarrito = document.querySelector('#irCarrito')
@@ -191,7 +171,9 @@ irCarrito.onclick = () => {
         <th scope="col">Subtotal</th>
     </tr>`
 
+    let totalCompra = 0;
     carrito.forEach(prod => {
+        totalCompra += prod.cantidad * prod.precio
         tbody.innerHTML += `
         <tr class="align-middle">            
             <td><img src="${prod.image}" class="img-thumbnail" alt="${prod.nombre}"></td>
@@ -200,7 +182,6 @@ irCarrito.onclick = () => {
             <td>${prod.cantidad * prod.precio}</td>
         </tr>`
     })
-
     divFinalizar.innerHTML = `
     <div>
         <button id="finalizarCompra" class="btn btn-outline-success">Finalizar Compra</button>
@@ -217,12 +198,31 @@ irCarrito.onclick = () => {
             confirmButtonText: 'Si, Comprar!'
         }).then((result) => {
             if (result.isConfirmed) {
+                tbody.remove();
+                thead.remove();
+                divFinalizar.remove();
+                titulocarro.remove();
+                parrafoTotal.innerHTML = `<div id="delayMsg"></div>`;
+                titulo.innerText = `Gracias por la compra Vuelve Pronto!`;
                 Swal.fire(
                     'Compra realizada!',
                     'Sus productos han sido comprados.',
                     'success'
                 )
+                function delayRedirect() {
+                    document.getElementById('delayMsg').innerHTML = `Por favor espera, serás redirigido después <span id="countDown">5</span> seconds....`;
+                    let count = 5;
+                    setInterval(function () {
+                        count--;
+                        document.getElementById('countDown').innerHTML = count;
+                        if (count == 0) {
+                            window.location = 'productos.html';
+                        }
+                    }, 1000);
+                }
+                delayRedirect();
             }
         })
     }
+    parrafoTotal.innerText = `El total de tu compra es: $${totalCompra}`
 }

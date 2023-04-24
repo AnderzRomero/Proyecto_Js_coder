@@ -147,7 +147,6 @@ function convertir() {
 		result: resultado,
 		convertida: infMonedaConvertir[0].nombre
 	}
-	console.log(historial);
 
 	localStorage.setItem('infoHistorialDivisas', JSON.stringify(historial))
 

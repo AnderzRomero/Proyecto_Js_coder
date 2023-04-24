@@ -15,7 +15,8 @@ body {
 	grid-template-rows: auto 1fr auto;
 	min-height: 80vh;
 }
-footer{
+
+footer {
 	min-height: 10vh;
 }
 
@@ -35,7 +36,7 @@ footer{
 
 h1 {
 	text-align: center;
-	color: #e2dfdf;
+	color: #ffffff !important;
 }
 
 h2 {
@@ -218,4 +219,8 @@ tr {
 	text-align: center;
 	border-color: #7c7979 !important;
 	width: 20%;
+}
+#total {
+	color: #FFF;
+	font-size: 30px;
 }

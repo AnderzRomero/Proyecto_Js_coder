@@ -11,6 +11,7 @@
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma/bulma.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Productos Electronicos</title>
 </head>
 
@@ -26,7 +27,7 @@
         </nav>
     </header>
     <main>
-        <h1 class="titulocarrito">Productos Electronicos</h1>
+        <h1 id="titulocarro" class="titulocarrito">Productos Electronicos</h1>
         <h2 id="titulo" class="titulocarrito">¡Bienvenidos, Ingresa tus datos</h2>
         <form id="formulario">
             Nombre: <input type="text" name="nombre" id="nombre">
@@ -42,21 +43,12 @@
                 <tbody id="tbody">
                 </tbody>
             </table>
+            <p id="total"></p>
         </div>
         <div id="divFinalizar"></div>
 
-        <!-- <div id="divPrincipal" class="menuproductos">
-            <select name="listaProductos" id="listaProductos">
-            </select>
-            <div class="flex-botones">
-                <button class="botones" id="anadirProd">Agregar al Carrito</button>
-                <button class="botones" id="finalizarCompra">Finalizar Compra</button>
-                <button class="botones" id="historialCompra">Historial Compras</button>
-            </div>
-        </div> -->
-
     </main>
-    <footer id="footer">
+    <!-- <footer id="footer">
         <div class="container">
             <div>Copyright &copy; Manfred Anderson Romero</div>
             <h3>¡Síguenos en las redes sociales!</h3>
@@ -67,11 +59,12 @@
                 <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </footer>
+    </footer> -->
     <script src="../productos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <!-- Font Awesome icons (free version)-->
     <script src="https://kit.fontawesome.com/e5d948d59a.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 
 </html>
