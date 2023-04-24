@@ -1,39 +1,29 @@
 html {
-	min-height: 100%;
-	position: relative;
+	margin: 0 auto;
 }
 
 header {
-	height: 10vh;
 	background-color: #33333391;
+	min-height: 10vh;
 }
 
 body {
 	background-image: url(../assets/img/fondo.jpg);
 	margin: 0;
-	margin-bottom: 40 px;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+	margin-bottom: 40px;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	min-height: 80vh;
 }
-
-footer {
-	text-align: center;
-	margin-top: auto;
-} 
-
-
-nav {
-	height: 50px;
-	width: 100%;
-	padding: 15px 0;
+footer{
+	min-height: 10vh;
 }
 
 #footer {
-	background-color: #333333b9;		
-	width: 100%;
+	background-color: #333333b9;
+	/* width: 100%; */
 	color: #fff;
-	padding: 30px 0;	
+	padding: 30px 0;
 }
 
 #footer a:hover {
@@ -79,10 +69,12 @@ select {
 }
 
 ul {
-	margin: 0;
+	margin: 0 !important;
 	padding: 0;
 	list-style-type: none;
 	display: flex;
+	padding: 1rem !important;
+	gap: 1rem;
 }
 
 li {
@@ -98,11 +90,10 @@ a {
 	padding: 15px;
 	transition: all 0.2s ease-in-out;
 }
-a:hover{
+
+a:hover {
 	color: black !important;
 }
-	
-
 
 .convertidor {
 	margin: 0 auto;
@@ -159,8 +150,6 @@ a:hover{
 	color: #333;
 	border-radius: 10px;
 }
-
-
 
 .container {
 	display: flex;
