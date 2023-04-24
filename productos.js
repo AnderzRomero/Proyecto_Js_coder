@@ -1,48 +1,3 @@
-// // carrito
-// const carrito = []
-
-// // boton añadir producto
-// const anadirBtnNode = document.querySelector('#anadirProd')
-// anadirBtnNode.onclick = () => {
-//     const index = selectNode.selectedIndex
-//     const prodSelecionado = productos[index]
-//     carrito.push(prodSelecionado)
-//     console.log(carrito);
-// }
-
-// // Boton Finalizar Compra
-// const finalizarBtnNode = document.querySelector('#finalizarCompra')
-// finalizarBtnNode.onclick = () => {
-//     let totalCompra = 0;
-//     carrito.forEach((producto) => {
-//         totalCompra = totalCompra + producto.precio
-//     })
-//     localStorage.setItem('infoHistoriaCompras', JSON.stringify(carrito))
-//     localStorage.setItem('totalCompras', JSON.stringify(totalCompra))
-//     alert(`El total de tu compra es $${totalCompra}`)
-// }
-
-// // Boton Historial Compras
-
-// const btnHistorial = document.querySelector('#historialCompra');
-
-// function historialCompra() {
-//     const infoHistorial = localStorage.getItem('infoHistoriaCompras')
-//     const arrayHistorial = (JSON.parse(infoHistorial));
-//     const historial = [];
-//     for (i = 0; i < arrayHistorial.length; i++) {
-//         historial.push(arrayHistorial[i].nombre);        
-//     }
-//     const infoTotalCompras = localStorage.getItem('totalCompras')
-//     const totalComprasHisto = (JSON.parse(infoTotalCompras))
-//     alert(`Tu ultima Compras fue: \n     
-//     ${historial} \n
-//     por un valor de compra : $${totalComprasHisto}`);
-// }
-
-// btnHistorial.onclick = historialCompra;
-
-
 const formulario = document.querySelector('#formulario')
 const inputNombre = document.querySelector('#nombre')
 const inputApellido = document.querySelector('#apellido')
@@ -114,7 +69,6 @@ productos.forEach(prod => {
 })
 
 
-
 //guardar productos en carrito
 const carrito = []
 
@@ -158,10 +112,14 @@ const irCarrito = document.querySelector('#irCarrito')
 const thead = document.querySelector('#thead')
 const tbody = document.querySelector('#tbody')
 const divFinalizar = document.querySelector('#divFinalizar')
+const btnPrueba = document.querySelector('#btnPrueba')
+const popup = document.querySelector('#popup')
+
 
 irCarrito.onclick = () => {
-    divProductos.remove()
-    irCarrito.remove()
+    divProductos.remove();
+    irCarrito.remove();
+    titulo.remove();
 
     thead.innerHTML = ` 
     <tr>
@@ -184,8 +142,37 @@ irCarrito.onclick = () => {
     })
     divFinalizar.innerHTML = `
     <div>
-        <button id="finalizarCompra" class="btn btn-outline-success">Finalizar Compra</button>
+        <button id="finalizarCompra" class="btn btn-outline-success">Finalizar Compra</button>        
     </div>`
+
+    btnPrueba.innerHTML = `<div><button id="btnPrueba" class="btn btn-outline-success">Prueba</button></div>`
+
+
+    // Mostrar Popup-mensaje de datos
+    function mostrarPopup() {
+        document.getElementById("popup").style.display = "flex";
+    }
+
+    // Cerrar Popup-mensaje de datos
+    function cerrarPopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+
+    // Obtener el botón para mostrar el Popup-mensaje de datos
+    let botonAbrir = document.getElementById("btnPrueba");
+
+    // Obtener el botón para cerrar el Popup-mensaje de datos
+    let botonCerrar = document.getElementById("cerrar-popup");
+
+    // Asignar función para mostrar el Popup-mensaje de datos al hacer clic en el botón
+    botonAbrir.onclick = function () {
+        mostrarPopup();
+
+        setTimeout(() => {
+            cerrarPopup();
+        }, 20000)
+    }
+    
 
     divFinalizar.onclick = () => {
         Swal.fire({
@@ -211,6 +198,7 @@ irCarrito.onclick = () => {
                 )
                 function delayRedirect() {
                     document.getElementById('delayMsg').innerHTML = `Por favor espera, serás redirigido después <span id="countDown">5</span> seconds....`;
+
                     let count = 5;
                     setInterval(function () {
                         count--;

@@ -220,7 +220,38 @@ tr {
 	border-color: #7c7979 !important;
 	width: 20%;
 }
+
 #total {
 	color: #FFF;
 	font-size: 30px;
+}
+
+/* Estilos del Popup-mensaje de datos */
+#popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.contenido-popup {
+	background-color: white;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#cerrar-popup {
+	margin-top: 10px;
+	background-color: #FF5733;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 5px;
+	cursor: pointer;
 }

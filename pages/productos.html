@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma/bulma.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <title>Productos Electronicos</title>
+    <title id="tituloPrincipal">Productos Electronicos</title>
 </head>
 
 <body>
@@ -45,7 +45,24 @@
             </table>
             <p id="total"></p>
         </div>
+        <!-- Popup-mensaje de datos -->
+        <div id="popup">
+            <div class="contenido-popup">
+                <h2>¡Contáctanos!</h2>
+                <form>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+                    <button type="submit">Enviar</button>
+                </form>                
+            </div>
+        </div>
         <div id="divFinalizar"></div>
+        <div id="btnPrueba"></div>
+
 
     </main>
     <!-- <footer id="footer">
