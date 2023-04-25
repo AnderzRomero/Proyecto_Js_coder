@@ -151,6 +151,13 @@ a:hover {
 	color: #333;
 	border-radius: 10px;
 }
+svg:hover {	
+	filter: invert(100%);
+}
+
+.icon:hover {
+	background-color: none !important;	
+}
 
 .container {
 	display: flex;
@@ -255,3 +262,4 @@ tr {
 	border-radius: 5px;
 	cursor: pointer;
 }
+

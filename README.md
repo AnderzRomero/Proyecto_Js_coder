@@ -51,7 +51,7 @@ Para utilizar la tienda virtual, siga estos pasos:
     4. Haga Clic en los botónes "+ y -" para cambiar las cantidades del producto.
     5. Haga clic en el botón "Finalizar Comprar" si ya no desea realizar cambios y efectuar el pago.
 
-<h>1Licencia</h>
+<h>Licencia</h>
 
 La página web de simuladores se distribuye bajo la licencia MIT, lo que permite su uso, distribución y modificación con fines comerciales y no comerciales.
 

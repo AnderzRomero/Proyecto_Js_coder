@@ -86,11 +86,8 @@ botonesAgregar.forEach(boton => {
             cantidad: 1,
         }
         const indexProd = carrito.findIndex(prod => prod.id === prodCarrito.id)
-        if (indexProd === -1) {
-            carrito.push(prodCarrito)
-        } else {
-            carrito[indexProd].cantidad++
-        }
+        
+        indexProd === -1 ? carrito.push(prodCarrito) : carrito[indexProd].cantidad++
 
         Toastify({
             text: "Se agrego tu producto al carrito!",
@@ -112,7 +109,7 @@ const irCarrito = document.querySelector('#irCarrito')
 const thead = document.querySelector('#thead')
 const tbody = document.querySelector('#tbody')
 const divFinalizar = document.querySelector('#divFinalizar')
-const btnPrueba = document.querySelector('#btnPrueba')
+const btnMensaje = document.querySelector('#btnMensaje')
 const popup = document.querySelector('#popup')
 
 
@@ -120,6 +117,7 @@ irCarrito.onclick = () => {
     divProductos.remove();
     irCarrito.remove();
     titulo.remove();
+    titulocarro.innerText = `Productos en el carrito`;
 
     thead.innerHTML = ` 
     <tr>
@@ -145,7 +143,7 @@ irCarrito.onclick = () => {
         <button id="finalizarCompra" class="btn btn-outline-success">Finalizar Compra</button>        
     </div>`
 
-    btnPrueba.innerHTML = `<div><button id="btnPrueba" class="btn btn-outline-success">Prueba</button></div>`
+    btnMensaje.innerHTML = `<div><button id="btnMensaje" class="btn btn-outline-success">Enviar Mensaje</button></div>`
 
 
     // Mostrar Popup-mensaje de datos
@@ -159,7 +157,7 @@ irCarrito.onclick = () => {
     }
 
     // Obtener el botón para mostrar el Popup-mensaje de datos
-    let botonAbrir = document.getElementById("btnPrueba");
+    let botonAbrir = document.getElementById("btnMensaje");
 
     // Obtener el botón para cerrar el Popup-mensaje de datos
     let botonCerrar = document.getElementById("cerrar-popup");
