@@ -23,13 +23,15 @@
                 <li><a href="../pages/creditos.html">Creditos bancarios</a></li>
                 <li><a href="../pages/divisas.html">Cambio de divisas</a></li>
                 <li><a href="../pages/productos.html">Venta de productos</a></li>
-                <li><a><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <circle cx="6" cy="19" r="2" />
-                    <circle cx="17" cy="19" r="2" />
-                    <path d="M17 17h-11v-14h-2" />
-                    <path d="M6 5l14 1l-1 7h-13" />
-                  </svg><span id="numeroCarrito" class="numero">0</span></a></li>
+                <li><a><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="6" cy="19" r="2" />
+                            <circle cx="17" cy="19" r="2" />
+                            <path d="M17 17h-11v-14h-2" />
+                            <path d="M6 5l14 1l-1 7h-13" />
+                        </svg><span id="numeroCarrito" class="numero">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -41,17 +43,23 @@
             Apellido: <input type="text" name="apellido" id="apellido">
             <input type="submit" value="INGRESAR">
         </form>
-        <div class="row" id="divProductos"></div>
-        <button id="irCarrito" class="btn btn-outline-success">Ir al Carrito</button>
-        <div id="divCarrito">
-            <table class="table">
-                <thead id="thead">
-                </thead>
-                <tbody id="tbody">
-                </tbody>
-            </table>
-            <p id="total"></p>
+        <div class="container fondo-container">
+            <div class="row" id="divProductos"></div>
+            <div class="row">
+                <button id="irCarrito" class="button offset">Ir al Carrito</button>
+            </div>
+            <div id="divCarrito">
+                <table class="table">
+                    <thead id="thead">
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+                <p id="total"></p>
+            </div>
+            <div id="carritoVacio"></div>
         </div>
+
         <!-- Popup-mensaje de datos -->
         <div id="popup">
             <div class="contenido-popup">
@@ -64,11 +72,15 @@
                     <label for="mensaje">Mensaje:</label>
                     <textarea id="mensaje" name="mensaje" required></textarea>
                     <button type="submit">Enviar</button>
-                </form>                
+                </form>
             </div>
         </div>
-        <div id="divFinalizar"></div>
-        <div id="btnMensaje"></div>
+        <div class="container">
+            <div id="divFinalizar"></div>
+            <div id="btnMensaje"></div>
+            <div id="btnVaciar"></div>
+            <div id="btnSegirCompra"></div>
+        </div>
     </main>
     <!-- <footer id="footer">
         <div class="container">

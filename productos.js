@@ -5,7 +5,7 @@ const titulo = document.querySelector('#titulo')
 const divProductos = document.querySelector('#divProductos')
 const parrafoTotal = document.querySelector('#total')
 
-// click sobre el boton ingresar
+// click sobre el boton Ingresar
 formulario.onsubmit = (e) => {
     e.preventDefault();
     const infoUsuario = {
@@ -51,7 +51,7 @@ const productos = [
 
 productos.forEach(prod => {
     divProductos.innerHTML +=
-        `<div class="card m-3" style="max-width: 540px">
+        `<div class="card m-3" style="max-width: 400px">
             <div class="row g-0">
                     <div class="col-md-4">
                         <img src="${prod.image}" class="img-fluid rounded-start" alt="${prod.nombre}">
@@ -86,7 +86,7 @@ botonesAgregar.forEach(boton => {
             cantidad: 1,
         }
         const indexProd = carrito.findIndex(prod => prod.id === prodCarrito.id)
-        
+
         indexProd === -1 ? carrito.push(prodCarrito) : carrito[indexProd].cantidad++
 
         Toastify({
@@ -110,8 +110,9 @@ const thead = document.querySelector('#thead')
 const tbody = document.querySelector('#tbody')
 const divFinalizar = document.querySelector('#divFinalizar')
 const btnMensaje = document.querySelector('#btnMensaje')
+const btnVaciar = document.querySelector('#btnVaciar')
+const btnSegirCompra = document.querySelector('#btnSegirCompra')
 const popup = document.querySelector('#popup')
-
 
 irCarrito.onclick = () => {
     divProductos.remove();
@@ -135,15 +136,28 @@ irCarrito.onclick = () => {
             <td><img src="${prod.image}" class="img-thumbnail" alt="${prod.nombre}"></td>
             <td>${prod.nombre}</td>
             <td>${prod.cantidad}</td>
-            <td>${prod.cantidad * prod.precio}</td>
+            <td>$ ${prod.cantidad * prod.precio}</td>
         </tr>`
     })
     divFinalizar.innerHTML = `
     <div>
-        <button id="finalizarCompra" class="btn btn-outline-success">Finalizar Compra</button>        
+        <button id="finalizarCompra" class="button close">Finalizar Compra</button>        
     </div>`
 
-    btnMensaje.innerHTML = `<div><button id="btnMensaje" class="btn btn-outline-success">Enviar Mensaje</button></div>`
+    btnMensaje.innerHTML = `
+    <div>
+        <button id="btnMensaje" class="button slide">Enviar Mensaje</button>
+    </div>`
+
+    btnVaciar.innerHTML = `
+    <div>
+        <button id="btnVaciar" class="button fill">Vaciar Carrito</button>        
+    </div>`
+
+    btnSegirCompra.innerHTML = `
+    <div>
+        <button id="btnSegirCompra" class="button raise">Seguir Comprando</button>
+    </div>`
 
 
     // Mostrar Popup-mensaje de datos
@@ -159,18 +173,16 @@ irCarrito.onclick = () => {
     // Obtener el botón para mostrar el Popup-mensaje de datos
     let botonAbrir = document.getElementById("btnMensaje");
 
-    // Obtener el botón para cerrar el Popup-mensaje de datos
-    let botonCerrar = document.getElementById("cerrar-popup");
 
     // Asignar función para mostrar el Popup-mensaje de datos al hacer clic en el botón
-    botonAbrir.onclick = function () {
+    botonAbrir.onclick = () => {
         mostrarPopup();
 
         setTimeout(() => {
             cerrarPopup();
         }, 20000)
     }
-    
+
 
     divFinalizar.onclick = () => {
         Swal.fire({
@@ -210,5 +222,19 @@ irCarrito.onclick = () => {
             }
         })
     }
-    parrafoTotal.innerText = `El total de tu compra es: $${totalCompra}`
+
+    btnVaciar.onclick = () => {
+        const divCarrito = document.querySelector('#divCarrito');
+        const carritoVacio = document.querySelector('#carritoVacio');
+
+        divCarrito.remove();
+        carritoVacio.innerHTML = `<div><h3>Carrito vacio</h3></div>`;
+
+    }
+
+    btnSegirCompra.onclick = () => {
+        window.location = 'productos.html'
+    }
+
+    parrafoTotal.innerText = `El total de tu compra es: $ ${totalCompra}`
 }

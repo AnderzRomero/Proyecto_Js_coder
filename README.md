@@ -1,4 +1,4 @@
-Proyecto de simuladores de divisas, créditos bancarios y venta de productos tecnológicos
+# Proyecto de simuladores de divisas, créditos bancarios y venta de productos tecnológicos
 
 Este proyecto es un conjunto de simuladores y herramientas para el análisis financiero y la venta de productos tecnológicos. Contiene tres módulos principales:
 
@@ -9,7 +9,7 @@ Este proyecto es un conjunto de simuladores y herramientas para el análisis fin
 * Tienda virtual: Permite comprar productos tecnológicos y calcular el costo total, incluyendo el impuesto y el envío.
 Cómo instalar el proyecto
 
-Para instalar el proyecto, siga estos pasos:
+# Para instalar el proyecto, siga estos pasos:
 
 1. Clonar el repositorio en su computadora
 
@@ -17,9 +17,9 @@ Para instalar el proyecto, siga estos pasos:
 
 2. Iniciar el servidor
 
-Cómo utilizar los simuladores
+# Cómo utilizar los simuladores
 
-Simulador de créditos bancarios
+# Simulador de créditos bancarios
 
 Para utilizar el simulador de créditos bancarios, siga estos pasos:
 
@@ -30,7 +30,7 @@ Para utilizar el simulador de créditos bancarios, siga estos pasos:
     5. Haga cilc en el botón "Limpiar" para vaciar las casillas del simulador y eliminar Historial.
     6. Haga cilc en el botón "Historial" si desea ver el Historia de conversiones realizadas.
 
-Simulador de divisas
+# Simulador de divisas
 
 Para utilizar el simulador de divisas, siga estos pasos:
 
@@ -41,7 +41,7 @@ Para utilizar el simulador de divisas, siga estos pasos:
     5. Haga cilc en el botón "Limpiar" para vaciar las casillas del simulador y eliminar Historial.
     6. Haga cilc en el botón "Historial" si desea ver el Historia de conversiones realizadas. 
 
-Tienda virtual
+# Tienda virtual
 
 Para utilizar la tienda virtual, siga estos pasos:
 
@@ -51,10 +51,10 @@ Para utilizar la tienda virtual, siga estos pasos:
     4. Haga Clic en los botónes "+ y -" para cambiar las cantidades del producto.
     5. Haga clic en el botón "Finalizar Comprar" si ya no desea realizar cambios y efectuar el pago.
 
-<h>Licencia</h>
+# Licencia
 
 La página web de simuladores se distribuye bajo la licencia MIT, lo que permite su uso, distribución y modificación con fines comerciales y no comerciales.
 
-Agradecimientos
+# Agradecimientos
 
 Agradecemos a nuestros usuarios por su apoyo y feedback, lo que nos ayuda a mejorar constantemente la página web de simuladores.
