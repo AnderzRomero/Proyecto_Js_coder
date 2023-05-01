@@ -105,6 +105,7 @@ botonesAgregar.forEach(boton => {
 })
 
 // boton ir al carrito de compras
+const irCarritoLogo = document.querySelector('#irCarritoLogo')
 const irCarrito = document.querySelector('#irCarrito')
 const thead = document.querySelector('#thead')
 const tbody = document.querySelector('#tbody')
@@ -114,50 +115,51 @@ const btnVaciar = document.querySelector('#btnVaciar')
 const btnSegirCompra = document.querySelector('#btnSegirCompra')
 const popup = document.querySelector('#popup')
 
-irCarrito.onclick = () => {
+irCarritoLogo.onclick = () => {
     divProductos.remove();
+    irCarritoLogo.remove();
     irCarrito.remove();
     titulo.remove();
     titulocarro.innerText = `Productos en el carrito`;
 
     thead.innerHTML = ` 
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">Producto</th>
-        <th scope="col">Cantidad</th>
-        <th scope="col">Subtotal</th>
-    </tr>`
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+        </tr>`
 
     let totalCompra = 0;
     carrito.forEach(prod => {
         totalCompra += prod.cantidad * prod.precio
         tbody.innerHTML += `
-        <tr class="align-middle">            
-            <td><img src="${prod.image}" class="img-thumbnail" alt="${prod.nombre}"></td>
-            <td>${prod.nombre}</td>
-            <td>${prod.cantidad}</td>
-            <td>$ ${prod.cantidad * prod.precio}</td>
-        </tr>`
+            <tr class="align-middle">            
+                <td><img src="${prod.image}" class="img-thumbnail" alt="${prod.nombre}"></td>
+                <td>${prod.nombre}</td>
+                <td>${prod.cantidad}</td>
+                <td>$ ${prod.cantidad * prod.precio}</td>
+            </tr>`
     })
     divFinalizar.innerHTML = `
-    <div>
-        <button id="finalizarCompra" class="button close">Finalizar Compra</button>        
-    </div>`
+        <div>
+            <button id="finalizarCompra" class="button close">Finalizar Compra</button>        
+        </div>`
 
     btnMensaje.innerHTML = `
-    <div>
-        <button id="btnMensaje" class="button slide">Enviar Mensaje</button>
-    </div>`
+        <div>
+            <button id="btnMensaje" class="button slide">Enviar Mensaje</button>
+        </div>`
 
     btnVaciar.innerHTML = `
-    <div>
-        <button id="btnVaciar" class="button fill">Vaciar Carrito</button>        
-    </div>`
+        <div>
+            <button id="btnVaciar" class="button fill">Vaciar Carrito</button>        
+        </div>`
 
     btnSegirCompra.innerHTML = `
-    <div>
-        <button id="btnSegirCompra" class="button raise">Seguir Comprando</button>
-    </div>`
+        <div>
+            <button id="btnSegirCompra" class="button raise">Seguir Comprando</button>
+        </div>`
 
 
     // Mostrar Popup-mensaje de datos
@@ -238,3 +240,5 @@ irCarrito.onclick = () => {
 
     parrafoTotal.innerText = `El total de tu compra es: $ ${totalCompra}`
 }
+
+
