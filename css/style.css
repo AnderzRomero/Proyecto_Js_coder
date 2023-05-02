@@ -338,7 +338,12 @@ tr {
 }
 
 .img-fluid {
-	padding-top: 30px;
+	padding-top: 25px;
+}
+
+.img-productos {
+	width: 124.656px !important;
+	height: 149.656px !important;
 }
 
 #total {
@@ -375,3 +380,4 @@ tr {
 	border-radius: 5px;
 	cursor: pointer;
 }
+

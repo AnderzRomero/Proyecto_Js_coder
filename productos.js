@@ -37,37 +37,37 @@ class Producto {
 }
 
 const productos = [
-    new Producto(1, '../assets/img/iPhone.jpg', 'iPhone', 600, 10),
-    new Producto(2, '../assets/img/iPad.jpg', 'iPad', 200, 5),
-    new Producto(3, '../assets/img/AirPods.jpg', 'AirPods', 100, 4),
-    new Producto(4, '../assets/img/Macbook.jpeg', 'Macbook', 1200, 8),
-    new Producto(5, '../assets/img/AppleWatch.jpg', 'AppleWatch', 250, 2),
-    new Producto(6, '../assets/img/Samsung Galaxy.jpg', 'Samsung Galaxy', 600, 15),
-    new Producto(7, '../assets/img/Xiaomi.jpeg', 'Xiaomi', 500, 25),
-    new Producto(8, '../assets/img/Smart TV.jpg', 'Smart TV', 800, 12),
-    new Producto(9, '../assets/img/GoPro.jpeg', 'GoPro', 200, 10),
-    new Producto(10, '../assets/img/Digital Camera.jpeg', 'Digital Camera', 550, 4)
-]
+    new Producto(21, '../assets/img/iPhone.jpg', 'iPhone', 600, 10),
+    new Producto(22, '../assets/img/iPad.jpg', 'iPad', 200, 5),
+    new Producto(23, '../assets/img/AirPods.jpg', 'AirPods', 100, 4),
+    new Producto(24, '../assets/img/Macbook.jpeg', 'Macbook', 1200, 8),
+    new Producto(25, '../assets/img/AppleWatch.jpg', 'AppleWatch', 250, 2),
+    new Producto(26, '../assets/img/Samsung Galaxy.jpg', 'Samsung Galaxy', 600, 15),
+    new Producto(27, '../assets/img/Xiaomi.jpeg', 'Xiaomi', 500, 25),
+    new Producto(28, '../assets/img/Smart TV.jpg', 'Smart TV', 800, 12),
+    new Producto(29, '../assets/img/GoPro.jpeg', 'GoPro', 200, 10),
+    new Producto(30, '../assets/img/Digital Camera.jpeg', 'Digital Camera', 550, 4),
+];
 
 productos.forEach(prod => {
+    const { id, image, nombre, precio, stock } = prod
     divProductos.innerHTML +=
         `<div class="card m-3" style="max-width: 400px">
             <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="${prod.image}" class="img-fluid rounded-start" alt="${prod.nombre}">
+                        <img src="${image}" class="img-fluid rounded-start" alt="${nombre}">
                     </div>
                     <div class="col-md-8 grid text-center">
                         <div class="card-body">
-                            <h5 class="card-title placeholder-wave">${prod.nombre}</h5>
-                            <p class="card-text ">Precio: $${prod.precio}</p>
-                            <p class="card-text"><small class="text-body-secondary">Unidades Disponibles: <b>${prod.stock}</b></small></p>
-                            <button id=${prod.id} class="btn btn-outline-dark placeholder-wave">Agregar</button>
+                            <h5 class="card-title placeholder-wave">${nombre}</h5>
+                            <p class="card-text ">Precio: $${precio}</p>
+                            <p class="card-text"><small class="text-body-secondary">Unidades Disponibles: <b>${stock}</b></small></p>
+                            <button id=${id} class="btn btn-outline-dark placeholder-wave">Agregar</button>
                         </div>
                     </div>
             </div>
         </div>`
 })
-
 
 //guardar productos en carrito
 const carrito = []
@@ -101,7 +101,6 @@ botonesAgregar.forEach(boton => {
             }
         }).showToast();
     }
-
 })
 
 // boton ir al carrito de compras
@@ -240,5 +239,3 @@ irCarritoLogo.onclick = () => {
 
     parrafoTotal.innerText = `El total de tu compra es: $ ${totalCompra}`
 }
-
-

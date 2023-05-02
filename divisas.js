@@ -8,7 +8,6 @@ const btnHistorial = document.querySelector('#botonHistorial');
 function convertirMoneda(cantidad, tasa) {
 	return cantidad * tasa;
 }
-
 function convertir() {
 
 	// Crear Clase modena
@@ -57,8 +56,6 @@ function convertir() {
 		}
 	}
 
-	// console.log("Divisa escogida es: " + infMonedaEscogida[0].nombre);
-
 	//variable para condicion de moneda correcta
 	let escogidaConvertir = false
 	let infMonedaConvertir;
@@ -83,13 +80,44 @@ function convertir() {
 			break;
 		}
 	}
-	// console.log('Divisa escogida es:  ' + infMonedaConvertir[0].nombre);
+
+	let rates;
+
+	// Obtener los datos de las tasas de cambio de api frankfurter
+	const host = 'api.frankfurter.app';
+	fetch(`https://${host}/latest`)
+		.then(response => response.json())
+		.then(data => {
+			rates = data.rates;			
+
+			console.log(rates['USD']);
+
+			// // Función para convertir la moneda			
+			// function convertirMoneda(cantidad, monedaDesde, monedaHacia) {
+			// 	const tasaDesde = rates[monedaDesde];
+			// 	const tasaHacia = rates[monedaHacia];
+			// 	const cantidadHacia = cantidad / tasaDesde * tasaHacia;
+			// 	return cantidadHacia.toFixed(2);
+			// }
+
+			// // Ejemplo de conversión de USD a EUR
+			// const cantidad = cantidad;
+			// const desde = monedaOrigen;
+			// const hacia = monedaDestino;
+			// const cantidadEUR = convertirMoneda(cantidad, desde, hacia);
+			// console.log(`${cantidad} ${infMonedaEscogida[0].nombre} equivale a ${cantidadEUR} ${infMonedaConvertir[0].nombre}`);
+
+
+		})
+		.catch(error => {
+			console.error("Hubo un error al obtener las tasas de cambio:", error);
+		});
 
 	// Definimos las tasas de conversión
 	let tasa;
 
 	if (monedaOrigen === "USD" && monedaDestino === "EUR") {
-		tasa = 0.94;
+		tasa = 0.94;		
 	} else if (monedaOrigen === "USD" && monedaDestino === "JPY") {
 		tasa = 135.84;
 	} else if (monedaOrigen === "USD" && monedaDestino === "GBP") {
@@ -134,6 +162,7 @@ function convertir() {
 
 	let contenedor = document.createElement("div");
 	contenedor.setAttribute('class', 'convertidor convertidor__resultado');
+
 	//Definimos el innerHTML del elemento con una plantilla de texto
 	contenedor.innerHTML = `<h2> Resultado es: </h2>
 							<p> <b>${cantidad}</b>   ${infMonedaEscogida[0].nombre} = <b>${resultado.toFixed(2)}</b>    ${infMonedaConvertir[0].nombre}</p>`;
@@ -149,6 +178,7 @@ function convertir() {
 	}
 
 	localStorage.setItem('infoHistorialDivisas', JSON.stringify(historial))
+
 
 }
 
